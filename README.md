@@ -1,5 +1,7 @@
 # Shrtener
 
+[![CircleCI](https://circleci.com/gh/TiuTalk/shrtener.svg?style=svg&circle-token=ea51a24deac2fdbe61ba7e7c8b5c585ebaa291c3)](https://circleci.com/gh/TiuTalk/shrtener)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
