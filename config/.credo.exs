@@ -79,7 +79,7 @@
         {Credo.Check.Readability.LargeNumbers},
         {Credo.Check.Readability.MaxLineLength, priority: :low, max_length: 80},
         {Credo.Check.Readability.ModuleAttributeNames},
-        {Credo.Check.Readability.ModuleDoc},
+        {Credo.Check.Readability.ModuleDoc, false},
         {Credo.Check.Readability.ModuleNames},
         {Credo.Check.Readability.ParenthesesOnZeroArityDefs},
         {Credo.Check.Readability.ParenthesesInCondition},
@@ -123,11 +123,11 @@
 
         # Controversial and experimental checks (opt-in, just remove `, false`)
         #
-        {Credo.Check.Refactor.ABCSize, false},
-        {Credo.Check.Refactor.AppendSingleItem, false},
-        {Credo.Check.Refactor.VariableRebinding, false},
-        {Credo.Check.Warning.MapGetUnsafePass, false},
-        {Credo.Check.Consistency.MultiAliasImportRequireUse, false},
+        {Credo.Check.Refactor.ABCSize},
+        {Credo.Check.Refactor.AppendSingleItem},
+        {Credo.Check.Refactor.VariableRebinding},
+        {Credo.Check.Warning.MapGetUnsafePass},
+        {Credo.Check.Consistency.MultiAliasImportRequireUse},
 
         # Deprecated checks (these will be deleted after a grace period)
         #
