@@ -7,7 +7,7 @@ defmodule ShrtenerWeb.UrlControllerTest do
   describe "new url" do
     test "renders form", %{conn: conn} do
       conn = get conn, url_path(conn, :new)
-      assert html_response(conn, 200) =~ "New Url"
+      assert html_response(conn, 200) =~ "Paste a link"
     end
   end
 
@@ -22,7 +22,8 @@ defmodule ShrtenerWeb.UrlControllerTest do
 
     test "renders errors when data is invalid", %{conn: conn} do
       conn = post conn, url_path(conn, :create), url: @invalid_attrs
-      assert html_response(conn, 200) =~ "New Url"
+      assert html_response(conn, 200) =~ "Paste a link"
+      assert html_response(conn, 200) =~ "is not a valid URL"
     end
   end
 end

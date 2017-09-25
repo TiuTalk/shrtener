@@ -1,17 +1,11 @@
 <%= form_for @changeset, @action, fn f -> %>
-  <%= if @changeset.action do %>
-    <div class="alert alert-danger">
-      <p>Oops, something went wrong! Please check the errors below.</p>
+  <div class="field has-addons">
+    <div class="control is-expanded">
+      <%= text_input f, :url, class: "input is-medium", placeholder: "Paste a link to make it smaller" %>
+      <%= error_tag f, :url %>
     </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= label f, :url, class: "control-label" %>
-    <%= text_input f, :url, class: "form-control" %>
-    <%= error_tag f, :url %>
-  </div>
-
-  <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
+    <div class="control">
+      <%= submit "Go!", class: "button is-info is-medium" %>
+    </div>
   </div>
 <% end %>
