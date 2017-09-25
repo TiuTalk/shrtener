@@ -19,13 +19,13 @@ defmodule Shrtener.Shortener.Url do
     url
     |> cast(attrs, @required ++ @optional)
     |> validate_required(@required)
-    |> validate_url(:url, message: "URL is not a valid URL!")
+    |> validate_url(:url, message: "is not a valid URL")
     |> unique_constraint(:shortcode)
   end
 
   defp validate_url(changeset, field, options \\ []) do
     validate_change changeset, field, fn _, url ->
-      case url |> String.to_char_list |> :http_uri.parse do
+      case url |> String.to_charlist |> :http_uri.parse do
         {:ok, _} -> []
         {:error, msg} -> [{field, options[:message] || "invalid url: #{inspect msg}"}]
       end
