@@ -49,7 +49,12 @@ exports.config = {
       ignore: [/vendor/]
     },
     sass: {
-      mode: "native"
+      mode: "native",
+      options: {
+        includePaths: [
+          'node_modules/bulma',
+        ]
+      }
     }
   },
 
