@@ -19,3 +19,8 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+
+// Close flash messages
+$('.notification button.delete').on('click', function() {
+  $(this).closest('.notification').remove();
+});

@@ -11,6 +11,7 @@
   </head>
 
   <body>
+    <%= render ShrtenerWeb.SharedView, "flash_messages.html", assigns %>
 
     <section class="hero is-primary has-text-centered">
       <div class="hero-body">
