@@ -16,7 +16,7 @@
     <section class="hero is-primary has-text-centered">
       <div class="hero-body">
         <div class="container">
-          <h1 class="title">Shrtener</h1>
+          <h1 class="title"><%= link("Shrtener", to: "/") %></h1>
           <p class="subtitle">A <b>simple</b> URL shortener!</p>
         </div>
       </div>
