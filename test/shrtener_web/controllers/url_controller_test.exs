@@ -1,8 +1,8 @@
 defmodule ShrtenerWeb.UrlControllerTest do
   use ShrtenerWeb.ConnCase
 
-  @create_attrs %{shortcode: "some shortcode", url: "some url", visits: 42}
-  @invalid_attrs %{shortcode: nil, url: nil, visits: nil}
+  @create_attrs %{url: "http://google.com/"}
+  @invalid_attrs %{url: "some url"}
 
   describe "new url" do
     test "renders form", %{conn: conn} do

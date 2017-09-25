@@ -6,8 +6,8 @@ defmodule Shrtener.ShortenerTest do
   describe "urls" do
     alias Shrtener.Shortener.Url
 
-    @valid_attrs %{shortcode: "some shortcode", url: "some url", visits: 42}
-    @invalid_attrs %{shortcode: nil, url: nil, visits: nil}
+    @valid_attrs %{url: "http://google.com/"}
+    @invalid_attrs %{url: "some url"}
 
     def url_fixture(attrs \\ %{}) do
       {:ok, url} =
@@ -15,7 +15,7 @@ defmodule Shrtener.ShortenerTest do
         |> Enum.into(@valid_attrs)
         |> Shortener.create_url()
 
-      url
+      Shortener.get_url!(url.id)
     end
 
     test "get_url!/1 returns the url with given id" do
@@ -25,9 +25,7 @@ defmodule Shrtener.ShortenerTest do
 
     test "create_url/1 with valid data creates a url" do
       assert {:ok, %Url{} = url} = Shortener.create_url(@valid_attrs)
-      assert url.shortcode == "some shortcode"
-      assert url.url == "some url"
-      assert url.visits == 42
+      assert url.url == "http://google.com/"
     end
 
     test "create_url/1 with invalid data returns error changeset" do
