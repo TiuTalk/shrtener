@@ -53,9 +53,13 @@ exports.config = {
       options: {
         includePaths: [
           'node_modules/bulma',
+          'node_modules/font-awesome/scss',
         ]
       }
-    }
+    },
+    copycat: {
+      "fonts": ["node_modules/font-awesome/fonts"]
+    },
   },
 
   modules: {
