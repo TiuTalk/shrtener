@@ -18,4 +18,12 @@ defmodule ShrtenerWeb.UrlController do
         render(conn, "new.html", changeset: changeset)
     end
   end
+
+  def redirect_shortcode(conn, %{"shortcode" => shortcode}) do
+    url = Shortener.get_url_by_shortcode!(shortcode)
+    # TODO: Increase view counter
+    redirect(conn, external: url.url)
+  rescue
+    Ecto.NoResultsError -> redirect(conn, to: url_path(conn, :new))
+  end
 end

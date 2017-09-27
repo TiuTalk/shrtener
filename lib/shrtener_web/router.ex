@@ -18,6 +18,7 @@ defmodule ShrtenerWeb.Router do
 
     get "/", UrlController, :new
     resources "/urls", UrlController, only: [:new, :create]
+    get "/:shortcode", UrlController, :redirect_shortcode
   end
 
   # Other scopes may use custom stacks.

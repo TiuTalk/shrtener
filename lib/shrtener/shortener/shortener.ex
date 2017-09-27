@@ -25,6 +25,7 @@ defmodule Shrtener.Shortener do
 
   """
   def get_url!(id), do: Repo.get!(Url, id)
+  def get_url_by_shortcode!(shortcode), do: Repo.get_by!(Url, shortcode: shortcode)
 
   @doc """
   Creates a url.
