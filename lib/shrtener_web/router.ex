@@ -17,7 +17,7 @@ defmodule ShrtenerWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", UrlController, :new
-    resources "/urls", UrlController
+    resources "/urls", UrlController, only: [:new, :create]
   end
 
   # Other scopes may use custom stacks.

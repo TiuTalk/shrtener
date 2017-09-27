@@ -5,8 +5,10 @@ defmodule Shrtener.Shortener do
 
   import Ecto.Query, warn: false
   alias Shrtener.Repo
-
   alias Shrtener.Shortener.Url
+  alias Ecto.Changeset
+
+  @hashid Hashids.new([min_len: 3, salt: System.get_env("SECRET_KEY_BASE") || ""])
 
   @doc """
   Gets a single url.
@@ -40,6 +42,7 @@ defmodule Shrtener.Shortener do
     %Url{}
     |> Url.changeset(attrs)
     |> Repo.insert()
+    |> generate_shortcode
   end
 
   @doc """
@@ -53,5 +56,16 @@ defmodule Shrtener.Shortener do
   """
   def change_url(%Url{} = url) do
     Url.changeset(url, %{})
+  end
+
+  defp generate_shortcode({:error, %Changeset{} = url}), do: {:error, url}
+  defp generate_shortcode({:ok, %Url{} = url}) do
+    url
+    |> Changeset.change(shortcode: generate_random_shortcode(url.id))
+    |> Repo.update
+  end
+
+  defp generate_random_shortcode(id) do
+    Hashids.encode(@hashid, id)
   end
 end

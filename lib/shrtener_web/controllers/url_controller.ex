@@ -11,10 +11,9 @@ defmodule ShrtenerWeb.UrlController do
 
   def create(conn, %{"url" => url_params}) do
     case Shortener.create_url(url_params) do
-      {:ok, _url} ->
-        conn
-        |> put_flash(:info, "Url created successfully.")
-        |> redirect(to: url_path(conn, :new))
+      {:ok, url} ->
+        changeset = Shortener.change_url(%Url{})
+        render(conn, "new.html", changeset: changeset, url: url)
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end

@@ -15,9 +15,8 @@ defmodule ShrtenerWeb.UrlControllerTest do
     test "redirects to show when data is valid", %{conn: conn} do
       conn = post conn, url_path(conn, :create), url: @create_attrs
 
-      # TODO: Redirect to show action
-      assert %{} = redirected_params(conn)
-      assert redirected_to(conn) == url_path(conn, :new)
+      assert html_response(conn, 200) =~ "Paste a link"
+      assert html_response(conn, 200) =~ "Here is your new URL"
     end
 
     test "renders errors when data is invalid", %{conn: conn} do

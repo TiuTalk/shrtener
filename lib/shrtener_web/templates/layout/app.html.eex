@@ -11,8 +11,6 @@
   </head>
 
   <body>
-    <%= render ShrtenerWeb.SharedView, "flash_messages.html", assigns %>
-
     <section class="hero is-primary has-text-centered">
       <div class="hero-body">
         <div class="container">
@@ -23,6 +21,8 @@
     </section>
 
     <section class="section has-text-centered">
+      <%= render ShrtenerWeb.SharedView, "flash_messages.html", assigns %>
+
       <%= render @view_module, @view_template, assigns %>
     </section>
 
