@@ -10,8 +10,11 @@
           <div class="content">
             <p>Here is your new URL:</p>
             <div class="field" style="width: 100%">
-              <div class="control is-expanded">
-                <input class="input" value="<%= url_url(@conn, :redirect_shortcode, @url.shortcode) %>" onclick="this.setSelectionRange(0, this.value.length)" />
+              <div class="control has-icons-left is-expanded">
+                <input class="input is-medium" readonly value="<%= url_url(@conn, :redirect_shortcode, @url.shortcode) %>" onclick="this.setSelectionRange(0, this.value.length)" />
+                <span class="icon is-small is-left">
+                  <i class="fa fa-globe"></i>
+                </span>
               </div>
             </div>
           </div>
