@@ -59,6 +59,12 @@ defmodule Shrtener.Shortener do
     Url.changeset(url, %{})
   end
 
+  def increment_visits(%Url{} = url) do
+    url
+    |> Changeset.change(visits: url.visits + 1)
+    |> Repo.update
+  end
+
   defp generate_shortcode({:error, %Changeset{} = url}), do: {:error, url}
   defp generate_shortcode({:ok, %Url{} = url}) do
     url
