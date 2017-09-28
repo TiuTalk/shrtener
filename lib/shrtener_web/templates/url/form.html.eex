@@ -1,11 +1,11 @@
 <%= form_for @changeset, @action, fn f -> %>
   <div class="field has-addons">
     <div class="control is-expanded">
-      <%= text_input f, :url, class: "input is-medium", placeholder: "Paste a link to make it smaller" %>
+      <%= text_input f, :url, class: "input is-medium", placeholder: "Paste a link to compress" %>
       <%= error_tag f, :url %>
     </div>
     <div class="control">
-      <%= submit "Go!", class: "button is-info is-medium" %>
+      <%= submit raw('Shrten <i class="fa fa-compress"></i>'), class: "button is-info is-medium" %>
     </div>
   </div>
 <% end %>
