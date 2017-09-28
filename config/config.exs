@@ -14,6 +14,7 @@ config :shrtener, ShrtenerWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "0NiA0oaaCpxVqbu+vAyfcduUxHyJl7Gou13nMQeEUVGKUehluNPY2BewDUDgPNvU",
   render_errors: [view: ShrtenerWeb.ErrorView, accepts: ~w(html json)],
+  http: [compress: true],
   pubsub: [name: Shrtener.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
